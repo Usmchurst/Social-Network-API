@@ -1,4 +1,5 @@
 const { User, Thought } = require('../models');
+const thoughtController = {
 
 module.exports = {
 //Get all thoughts
@@ -39,4 +40,6 @@ module.exports = {
           .then(() => res.json({ message: 'Course and students deleted!' }))
           .catch((err) => res.status(500).json(err));
       },
+
+      
 }
