@@ -1,10 +1,10 @@
-const { User, Thoughts } = require('./models');
+const { User, Thought } = require('../models');
 
 module.exports = {
     // Get all students
-    getallUsers(req, res) {
+    getAllUsers:  (req, res) => {
       User.find()
-        .then(async (Users) => {
+        .then((Users) => {
           const userObj = {
             Users,
             
@@ -85,7 +85,7 @@ module.exports = {
       });
   },
   
-  addAssignment(req, res) {
+  addFriend(req, res) {
     console.log('You are adding an assignment');
     console.log(req.body);
     Student.findOneAndUpdate(
@@ -103,7 +103,7 @@ module.exports = {
       .catch((err) => res.status(500).json(err));
   },
 
-  removeAssignment(req, res) {
+  removeFriend(req, res) {
     Student.findOneAndUpdate(
       { _id: req.params.studentId },
       { $pull: { assignment: { assignmentId: req.params.assignmentId } } },
